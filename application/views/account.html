@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人中心</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/account.css"/>		
+	</head>
+	<body>
+		<?php //var_dump($like)?>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<input type="hidden" name="fa" id="fa" value="<?php echo $this->uri->segment(3)?>" />
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+		<!--个人中心-->
+		<div class="body" style="margin-top: 64px;">
+			<!--上部分-->
+			<section class="home-header-section ui tint blur"  style="position: relative; z-index: 1;">
+				<div class="tint-overlay" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: rgba(0, 0, 0, 0.2);">
+					<svg xmlns="" version="1.1" id="blurred_lh905afcf" class="tint-bg-blur" viewBox="0 0 1273 400" preserveAspectRatio="none" style="opacity: 1;">
+						<filter id="blur_lh905afcf">
+							<feGaussianBlur in="SourceGraphic" stdDeviation="20"></feGaussianBlur>
+						</filter>
+						<image x="0" y="0" externalResourcesRequired="true" class="svg-img" xmlns:xlink="" xlink:href="<?php echo base_url('img/silder_09.jpg')?>" style="filter:url(#blur_lh905afcf)" preserveAspectRatio="none"></image>
+					</svg>
+				</div>
+				<div class="user-detail container">
+					<div class="avatar-block editable">
+						<a href="" class="change-head">
+							<!--如果有用户头像就显示没有就显示默认图片-->
+							<?php if($this->session->name[0]['img']){ ?>	
+								<?php if($this->session->name[0]['qqopenid']){ ?>
+									<img class="avatar-big" src="<?php echo $this->session->name[0]['img']?>" width="160" height="160" alt="zzw" id="preview1">
+								<?php }else{ ?>	
+								<img class="avatar-big" src="<?php echo base_url()?><?php echo $this->session->name[0]['img']?>" width="160" height="160" alt="zzw" id="preview1">
+								<?php }?>
+							<?php }else{?>
+							<img class="avatar-big" src="<?php echo base_url('img/slider_04.jpg')?>" width="160" height="160" alt="zzw" id="preview1">
+							<?php } ?>
+							<div class="change-head-tip">修改头像</div>
+							<form action="<?php echo site_url('home/user_avatar')?>" method="post" enctype="multipart/form-data" id="user_form">
+								<input type="file" name="myfile" id="file_input" value="" />
+							</form>
+						</a>
+					</div>
+					<div class="info-block">
+						<div class="info">
+							<span class="name title white extra"><?php echo $this->session->name[0]['name']?></span>
+							<a href="" class="rg-label small level" style="background-color: <?php echo $color?>;"><?php echo $grade?></a>
+							<span class="span-item gender white text">
+										<i class="ri ri-transgender"></i>
+								</span>
+						</div>
+						<div class="count">
+							<span class="span-item text white attention">
+						收藏：<a href="" class="gray"> <?php echo $like?count($like):0?></a>
+					</span>
+							<span class="span-item text white fan">
+						· 文章：<a href="" class="gray"> <?php echo $poetry?count($poetry):0?></a>
+					</span>
+						</div>
+						<p class="signature text white">
+							<span class="sign">签到</span>&nbsp;&nbsp;已连续签到<span class="sign_tian"><?php echo $islian[0]['islian']?></span>天<span class="sign_jifen">积分+<em>1</em></span>
+						</p>
+					</div>
+				</div>
+			</section>
+			<!--主体内容部分-->
+			<div class="home">
+				<div class="col-group">
+					<div class="col-9">
+						<div class="col_home">
+							<div class="tab-panel">
+								<!--导航-->
+								<div class="tab">
+									<ul>
+										<li class="active"><a href="javascript:void(0)">个人资料</a></li>
+										<li><a href="javascript:void(0)">我的收藏</a></li>
+										<li><a href="javascript:void(0)">我的文章</a></li>
+										<li><a href="javascript:void(0)">修改信息</a></li>
+										<li><a href="javascript:void(0)">发布文章</a></li>
+									</ul>
+								</div>
+								<!--内容-->
+								<!--个人资料-->
+								<div class="tab_content" style="display: block;">
+									<div class="rg_board">
+										<div class="rg_head">
+											<p class="title">个人资料</p>
+										</div>
+										<div class="rg_body">
+											<div class="profile">
+												<div class="profile-row">
+													<div class="profile-key">昵称</div>
+													<div class="profile-value">
+														<?php echo $this->session->name[0]['name']?>
+													</div>
+												</div>
+												<div class="profile-row">
+													<div class="profile-key">性别</div>
+													<?php if($this->session->name[0]['sex']){ ?>
+													<div class="profile-value">
+														<?php echo $this->session->name[0]['sex']?>
+													</div>
+													<?php }else{ ?>
+													<div class="profile-value">
+														隐藏
+													</div>
+													<?php } ?>
+												</div>
+												<div class="profile-row">													
+													<div class="profile-key">生日</div>
+													<?php if($this->session->name[0]['birthday']){ ?>
+													<div class="profile-value">
+														<?php echo $this->session->name[0]['birthday']?>
+													</div>
+													<?php }else{ ?>
+													<div class="profile-value">
+														未知
+													</div>
+													<?php } ?>
+												</div>
+												<div class="profile-row">
+													<div class="profile-key">城市</div>
+													<?php if($this->session->name[0]['city']){ ?>
+													<div class="profile-value">
+														<?php echo $this->session->name[0]['city']?>
+													</div>
+													<?php }else{ ?>
+													<div class="profile-value">
+														未知
+													</div>
+													<?php } ?>
+												</div>
+												<div class="profile-row">
+													<div class="profile-key">qq</div>
+													<div class="profile-value">
+														<?php if($this->session->name[0]['qq']){ ?>
+															<?php echo $this->session->name[0]['qq']?>
+														<?php }else{ ?>
+															未知
+															<?php } ?>
+													</div>
+												</div>
+												<div class="profile-row">
+													<div class="profile-key">微博</div>
+													<div class="profile-value">
+														<?php if($this->session->name[0]['weibo']){ ?>
+															<?php echo $this->session->name[0]['weibo']?>
+														<?php }else{ ?>
+															未知
+															<?php } ?>
+													</div>
+												</div>
+												<div class="profile-row">
+													<div class="profile-key">个性签名</div>
+													<div class="profile-value">
+														<?php echo $this->session->name[0]['signature']?>
+													</div>
+												</div>
+												<div class="profile-row">
+													<div class="profile-key">个人简介</div>
+													<div class="profile-value">
+														<?php echo $this->session->name[0]['account']?>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>								
+								<div class="tab_content">
+									<?php if(!$like){ ?>						
+									<!--没有内容时的状态-->
+									<div class="empty-view">
+										还没有相关的文章哦 ~~~~(>_<)~~~~
+									</div>
+									<?php }else{?>
+									<!--有内容是的状态-->
+									<ul class="article_list">
+										<?php foreach ($like as $v) { ?>										
+										<li>
+											<p>
+												<img src="<?php echo base_url('img/wen.png')?>"/>
+												<a href="" class="gray"><?php echo $v[0]['classify']?></a>
+												<a href="<?php echo site_url('home/article')?>/<?php echo $v[0]['poetry_num']?>" class="big"><?php echo $v[0]['title']?></a>
+												(<span><?php echo $v[0]['time']?></span>- -<span><?php echo $v[0]['collect_num']?></span>人喜欢- -<span><?php echo $v[0]['comment_num']?></span>人评论)
+											</p>
+											<p class="article_content"><?php echo $v[0]['content']?></p>
+										</li>
+										<?php } ?>
+									</ul>
+									<?php } ?>
+								</div>
+								<div class="tab_content">
+									<?php if(!$poetry){ ?>						
+									<!--没有内容时的状态-->
+									<div class="empty-view">
+										还没有与我相关的文章哦 ~~~~(>_<)~~~~
+									</div>
+									<?php }else{?>
+									<!--有内容是的状态-->
+									<ul class="article_list">
+										<?php foreach ($poetry as $v) { ?>										
+										<li>
+											<p>
+												<img src="<?php echo base_url('img/wen.png')?>"/>
+												<a href="" class="gray"><?php echo $v['classify']?></a>
+												<a href="<?php echo site_url('home/article')?>/<?php echo $v['poetry_num']?>" class="big"><?php echo $v['title']?></a>
+												(<span><?php echo $v['time']?></span> --<span><?php echo $v['collect_num']?></span>人喜欢 --<span><?php echo $v['comment_num']?></span>人评论)
+											</p>
+											<p class="article_content"><?php echo $v['content']?></p>
+										</li>
+										<?php } ?>
+									</ul>
+									<?php } ?>
+								</div>
+								<!--修改个人资料-->
+								<div class="tab_content tab_content4">
+									<div class="rg_board">
+										<div class="rg_head">
+											<p class="title">个人设置</p>
+										</div>									
+										<div class="rg_body1">
+											<!--修改资料的左边-->
+											<div class="set-menus">
+												<div class="meny_list">													
+													<div class="menu_item current">
+														<a>修改昵称</a>
+													</div>
+													<div class="menu_item">
+														<a>修改密码</a>
+													</div>
+													<div class="menu_item">
+														<a>修改邮箱</a>
+													</div>
+													<div class="menu_item">
+														<a>社交账号</a>
+													</div>
+													<div class="menu_item">
+														<a>资料设置</a>
+													</div>
+												</div>
+											</div>
+											<!--修改资料的右边-->
+											<!--修改昵称-->
+											<div class="set-content" style="display: block;">
+												<div class="form">
+													<form action="<?php echo site_url('home/nickname')?>" method="post">														
+														<div class="field">
+															<label for="">新昵称</label>
+															<input type="text" placeholder="输入新昵称" name="nickname"/>
+														</div>							
+														<input class="rg-button save-button" type="submit" value="保存">
+													</form>
+												</div>
+											</div>
+											<!--修改密码-->
+											<div class="set-content">
+												<div class="form">
+													<form action="<?php echo site_url('home/xiupassword')?>" method="post" id="pass_form">
+														
+														<div class="field">
+															<label for="">旧密码</label>
+															<input type="hidden" id="pass2" value="<?php echo $this->session->name[0]['password']?>"/>
+															<input type="password" placeholder="输入旧密码" name="pass1" class="pass1"/>
+														</div>	
+														<div class="field">
+															<label for="">新密码</label>
+															<input type="password" placeholder="输入新密码" name="pass2" class="pass2"/>
+														</div>
+														<div class="field">
+															<label for="">再次输入新密码</label>
+															<input type="password" placeholder="再次输入新密码" name="pass3"  class="pass3"/>
+														</div>
+														<div class="error" style="color: red;"></div>
+														<input class="rg-button save-button password_btn" type="button" value="保存">
+													</form>
+												</div>
+											</div>
+											<!--修改邮箱-->
+											<div class="set-content">
+												<div class="form">
+													<form action="" method="post">
+														
+														<div class="field">
+															<label for="">旧邮箱</label>
+															<p>1534395050@qq.com</p>
+														</div>	
+														<div class="field">
+															<label for="">新邮箱</label>
+															<input type="password" placeholder="输入新邮箱" name="email"/>
+															<p>点击提交后,系统将会发送一封邮件到您的新邮箱,点击邮件中的确认链接即可完成绑定.</p>
+														</div>
+														<input class="rg-button save-button" type="submit" value="保存">
+													</form>
+												</div>
+											</div>
+											<!--社交账号-->
+											<div class="set-content set-content4">
+												<p>绑定第三方社交帐号可以方便地使用第三方帐号登录.</p>
+												<div class="ui"></div>
+												<div class="form">
+													<form action="" method="post">
+														
+														<div class="field" style="margin-top: 20px;">
+															<label for="">腾讯QQ</label>
+															<div class="message">
+																<p>
+																	<a href="javascript:void(0)">绑定QQ</a>
+																</p>
+															</div>
+														</div>	
+														<div class="field">
+															<label for="">新浪微博</label>
+															<div class="message">
+																<p>
+																	<a href="javascript:void(0)">绑定微博</a>
+																</p>
+															</div>
+														</div>
+													</form>
+												</div>
+											</div>	
+												<!--资料设置-->
+											<div class="set-content">
+												<div class="form">
+													<form action="<?php echo site_url('home/personal_data')?>" method="post" enctype="multipart/form-data">
+														<div class="field field1">
+															<label for="">性别</label>
+															<div class="selection">
+																<select name="dender">
+																	<option value="未知" name="0" >未知</option>
+																	<option value="男" name="1">男</option>
+																	<option value="女" name="2">女</option>
+																</select>
+															</div>
+														</div>
+														<div class="field">
+															<label for="">生日</label>
+															<input type="text" placeholder="您的生日是" name="birth"/>
+														</div>
+														<div class="field">
+															<label for="">城市</label>
+															<input type="text" placeholder="您所在的城市" name="city"/>
+														</div>
+														<div class="field">
+															<label for="">QQ</label>
+															<input type="text" placeholder="您的QQ" name="qq"/>
+														</div>
+														<div class="field">
+															<label for="">微博</label>
+															<input type="text" placeholder="您的微博地址 (http://weibo.com/xxxx)" name="weibo"/>
+														</div>
+														<div class="field">
+															<label for="">个性签名</label>
+															<input type="text" placeholder="彰显您个性的文字" name="signature"/>
+														</div>
+														<div class="field">
+															<label for="">个人简介</label>
+															<textarea name="introduction" rows="3" cols="55" placeholder="简单的文字介绍自己"></textarea>
+														</div>
+														<input class="rg-button save-button" type="submit" value="保存">
+													</form>
+												</div>
+											</div>
+										</div>	
+									</div>
+								</div>	
+								<!--发布文章-->
+								<div class="tab_content tab_content5">
+									<div class="rg_board">
+										<div class="rg_head">
+											<img src="<?php echo base_url('img/zhuan.png')?>"/>
+											<p class="title">撰写文章</p>
+										</div>
+										<div class="rg_body">
+											<form action="<?php echo site_url('home/uploading')?>" class="form" method="post" enctype="multipart/form-data">
+												<div class="field">
+													<label for="">文章分类</label>
+													<div class="selection">
+														<select name="classify" class="classify">
+															<option value="诗">诗</option>
+															<option value="词">词</option>
+															<option value="赋">赋</option>
+															<option value="散文">散文</option>
+														</select>
+													</div>
+												</div>
+												<div class="field">
+													<label for="">文章标题</label>
+													<input type="text" placeholder="文章标题" name="title" class="title"/>
+												</div>
+												<div class="field">
+													<label for="">作者</label>
+													<input type="text" placeholder="作者" name="username" class="username"/>
+												</div>
+												<div class="field">
+													<label for="">文章内容</label>
+													<textarea  rows="10" cols="45" placeholder="文章内容" name="content" class="content"></textarea>
+												</div>
+												<!--上传图片-->
+												<div class="field">
+													<label for="">文章图片</label>
+													<div class="pic-box">
+														<div class="piclist">
+															<div class="file-item" id="localImag">
+																<img src="<?php echo base_url('img/floor05.jpg')?>" id="preview"/>
+																<div class="info">之为</div>
+																<div class="delete"><i>+</i></div>
+															</div>
+														</div>
+														<a class="rg_button">
+															<div class="webuploader-pick" >
+																<i><img src="<?php echo base_url('img/chuan.png')?>"/></i>选择图片
+															</div>															
+															<div class="rg_file">
+																<input type="file" name="myfile" id="file_head" value="" />
+																<label for=""></label>
+															</div>
+														</a>
+													</div>
+												</div>
+												<input class="field rg-button" type="submit" value="发表文章" id="issue">
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>			
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>	
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.1.1.min.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/jQuery.md5.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/account.js"></script>
+	</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>诗词网</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/index.css"/>
+	</head>
+	<body>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+		<!--轮播图-->
+		<div class="body">
+			<div class="background">
+				<div class="background-overlay" style="background: rgba(0, 0, 0, 0.2);">
+					<svg xmlns="" version="1.1" id="blurred_lh905afcf" class="tint-bg-blur" viewBox="0 0 1273 400" preserveAspectRatio="none" style="opacity: 1;">
+						<filter id="blur_lh905afcf">
+							<feGaussianBlur in="SourceGraphic" stdDeviation="20"></feGaussianBlur>
+						</filter>
+						<image x="0" y="0" externalResourcesRequired="true" class="svg-img" xmlns:xlink="" xlink:href="<?php echo base_url('img/slider_01.jpg')?>" style="filter:url(#blur_lh905afcf)" preserveAspectRatio="none"></image>
+					</svg>	
+				</div>
+				<!--轮播图之上的内容-->
+				<div class="container">
+					<!--左边的作者-->
+					<div class="recommend-detail">
+						<h2>
+							<a href="<?php echo site_url('home/article')?>/<?php echo $ci1[0]['poetry_num']?>" class="xiao_title"><?php echo $ci1[0]['title']?></a>
+						</h2>
+						<h4>
+							<a href="<?php echo site_url('home/writer')?>/<?php echo $ci1[0]['uid']?>" class="xiao_name"><?php echo $ci1[0]['author']?></a>
+						</h4>
+						<a href="<?php echo site_url('home/classify/1')?>" class="rg_button">更多推荐</a>
+					</div>
+					<!--中间的图片-->
+					<div class="recommend-show">
+						<a href="<?php echo site_url('home/article')?>/<?php echo $ci1[0]['poetry_num']?>" class="mya2"><img src="<?php echo base_url('img/slider_01.jpg')?>"/></a>
+					</div>
+					<!--右边的小图片-->
+					<div class="recommend-list">
+						 <ul>
+						 	<?php $c=0;?>
+						 	<?php foreach($ci1 as $vvv){?>
+						 		<?php $c++;?>
+						 	<li>
+						 		<a href="<?php echo site_url('home/article')?>/<?php echo $vvv['poetry_num']?>" class="mya">
+							 		<img src="<?php echo base_url('img/slider_0'.$c.'.jpg')?>"/>
+							 		<p class="title one_line"><?php echo $vvv['title']?></p>
+							 		<input type="hidden" name="hi_name" id="hi_name" value="<?php echo $vvv['author']?>" />
+							 		<input type="hidden" name="hi_id" id="hi_id" value="<?php echo site_url('home/writer/')?><?php echo $vvv['uid']?>"/>
+						 		</a>
+						 	</li>
+						 	<?php if($c == 8){break;}?>
+						 	<?php }?>
+						 </ul>
+					</div>
+				</div>
+			</div>
+			<!--横幅图片-->
+			<div class="banner1">
+				<a href=""><img src="<?php echo base_url('img/banner01.jpg')?>"/></a>
+			</div>
+			<!--精品文章 准备用来放宋词的-->
+			<div class="container">
+				<div class="container1">
+					<!--头部-->
+					<div class="board_head">
+						<p class="title">精品词集</p>
+						<a href="" class="more">更多 >></a>
+					</div>
+					<!--下部分-->
+					<div class="board_body">
+						<!--下上-->
+						<div class="group">
+							<?php $i=0;$ii=-1; ?>
+							<?php foreach($ci as $v){?>
+								<?php $i+=1;$ii++; ?>
+							<div class="col">
+								<div class="nicewithpic-item">
+									<a href="<?php echo site_url('home/writer/'.$v['uid'].'')?>" class="nice_cover">
+										<img src="<?php echo base_url(''.$v['img'].'')?>"/>
+									</a>
+									<!--标题-->
+									<div class="big"><a href="<?php echo site_url('home/article/'.$ci6[$ii][0]['poetry_num'].'')?>"><?php echo $ci6[$ii][0]['title']?></a></div>
+									<!--内容-->
+									<p class="summary"><?php echo $ci6[$ii][0]['content']?></p>
+									<!--作者-->
+									<p class="author">作者: <a href="<?php echo site_url('home/writer/'.$v['uid'].'')?>" class="author_a"><?php echo $v['name']?></a></p>
+								</div>
+								<?php if($i == 6){break;}?>
+									
+							</div>
+							<?php }?>
+						</div>
+						<!--下下-->
+						<div class="nice_list" style="float: left;">
+							<?php foreach($ci1 as $v){?>
+							<div class="col">
+								<div class="nice_item">
+									<a href="<?php echo site_url('home/classify/1')?>" class="gray">[<?php echo $v['classify']?>]</a>
+									<a href="<?php echo site_url('home/article')?>/<?php echo $v['poetry_num']?>" class="title"><?php echo $v['title']?></a>
+									/
+									<a href="<?php echo site_url('home/writer/'.$v['uid'].'')?>" class="gray"><?php echo $v['author']?></a>
+								</div>
+							</div>
+							<?php }?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--推荐文集 准备用来放诗集-->
+			<div class="container">
+				<div class="container1">
+					<!--头部-->
+					<div class="board_head">
+						<p class="title">精品诗集</p>
+						<a href="" class="more">更多 >></a>
+					</div>
+					<div class="board_body">
+						<div class="collection-list">
+							<?php $ii=0?>
+							<?php foreach($shi as $v){?>	
+								<?php if($ii == 12){break;}?>
+									<?php $ii+=1 ?>
+							<div class="container2_col">
+								<div class="collection-item">
+									<a href="<?php echo site_url('home/writer/'.$v['uid'].'')?>" class="collection-img">
+										<img src="<?php echo base_url(''.$v['img'].'')?>"/>
+									</a>
+									<p class="title"><a href="<?php echo site_url('home/writer/'.$v['uid'].'')?>" class="author_a"><?php echo $v['name']?></a></p>
+								</div>
+							</div>
+							<?php }?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--专题-->
+			<div class="container">
+				<div class="topic-section">
+					<div class="col-group">
+						<div class="col">
+							<div class="topic">
+								<a href="http://www.zhengzhiwei1.top/poetry/index.php/home/article/28" class="image">
+									<div class="label">洛神赋</div>
+									<img src="<?php echo base_url('img/timg (83).jpg')?>"/>
+								</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="topic">
+								<a href="http://www.zhengzhiwei1.top/poetry/index.php/home/article/29" class="image">
+									<div class="label">阿房宫赋</div>
+									<img src="<?php echo base_url('img/floor52.jpg')?>"/>
+								</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="topic">
+								<a href="http://www.zhengzhiwei1.top/poetry/index.php/home/article/34" class="image">
+									<div class="label">神女赋</div>
+									<img src="<?php echo base_url('img/timg (61).jpg')?>"/>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--最新文章-->
+			<div class="container container4">
+				<div class="col-group">
+					<!--左边最新文章-->
+					<div class="left">
+						<div class="rg-board">
+							<div class="rg-board-head">
+								<p class="title">最新文章</p>
+								<a href="" class="more">更多 >></a>
+							</div>
+						</div>
+						<!--内容-->
+						<div class="rg-board-body">
+							<div class="col_group">
+								<ul class="latest-list">
+									<?php foreach($xin as $v){?>
+									<li>
+										<a class="gray">[<?php echo $v['classify']?>]</a>
+										<a href="<?php echo site_url('home/article')?>/<?php echo $v['poetry_num']?>" class="title"><?php echo $v['title']?></a>
+										-
+										<a href="<?php echo site_url('home/writer/'.$v['uid'].'')?>" class="gray"><?php echo $v['author']?></a>
+									</li>
+									<?php }?>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--右边排行-->
+					<div class="right">
+						<div class="rg-board">
+							<div class="rg-board-head">
+								<p class="title">热门排行</p>								
+							</div>
+							<div class="rg-board-body">
+								<ul class="top-list">
+									<?php $s=1?>
+									<?php foreach($pai as $v){?>
+									<li>
+										<!--遍历数字-->
+										<i class="article-no"><?php echo $s++?>.</i>
+										<a href="<?php echo site_url('home/article')?>/<?php echo $v['poetry_num']?>" class="title"><?php echo $v['title']?></a>
+										-
+										<a href="<?php echo site_url('home/writer/'.$v['uid'].'')?>" class="gray"><?php echo $v['author']?></a>
+									</li>
+									<?php }?>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--横幅图片-->
+			<div class="banner1">
+				<a href=""><img src="<?php echo base_url('img/banner02.png')?>"/></a>
+			</div>
+			<!--准备放一些现代诗-->
+			<div class="container">
+				<div class="recommend-writer">
+					<div class="col-group">
+						<?php $num = -1;?>
+						<?php foreach($san as $wen){?>
+							<?php $num++?>
+						<div class="col">
+							<div class="writer-card">
+								<a href="<?php echo site_url('home/writer/'.$wen['uid'].'')?>" class="image_tar">
+									<img src="<?php echo base_url('')?><?php echo $wen['img']?>"/>
+								</a>
+								<div class="detail">
+									<a href="<?php echo site_url('home/writer/'.$wen['uid'].'')?>" class="big"><?php echo $wen['name']?></a>
+									<p class="gray">文章 <span id=""><?php echo $san_num[$num]?></span> 篇</p>
+									<p class="gray">文集 <span id="">0</span> 部</p>
+								</div>
+							</div>
+						</div>
+						<?php }?>
+					</div>
+				</div>
+			</div>
+			<!--作者头像-->
+			<div class="normal-writer container">
+				<?php foreach($userimg as $v){?>
+				<div class="writer-item">
+					<a href="<?php echo site_url('home/writer/'.$v['uid'].'')?>" class="image box-hover-modal">	
+						<div class="box-hover-modal-con">
+							<?php if($v['qqopenid']){ ?>
+							<img src="<?php echo $v['img']?>"/>
+							<?php }else{?>
+							<img src="<?php echo base_url('')?><?php echo $v['img']?>"/>
+							<?php }?>
+						</div>
+						<div class="box-hover-modal-m hover-overlay">
+							<p><?php echo $v['name']?></p>
+						</div>
+					</a>
+				</div>
+				<?php }?>
+			</div>
+			<div class="banner">
+				<div style="padding: 10px;"></div>
+			</div>
+			<?php $this->load->view('public_footer.html')?>
+			
+			
+		</div>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.1.1.min.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/jquery.boxhovermodal.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/index.js"></script>
+		<script>
+			$(function(){
+				$(".box-hover-modal").boxhovermodal(".box-hover-modal-m");
+			});
+	
+		</script>
+	</body>
+</html>

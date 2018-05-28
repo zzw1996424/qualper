@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title><?php echo $user[0]['name']?>的个人中心</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/account.css"/>		
+	</head>
+	<body>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+		<!--个人中心-->
+		<div class="body" style="margin-top: 64px;">
+			<!--上部分-->
+			<section class="home-header-section ui tint blur"  style="position: relative; z-index: 1;">
+				<div class="tint-overlay" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: rgba(0, 0, 0, 0.2);">
+					<svg xmlns="" version="1.1" id="blurred_lh905afcf" class="tint-bg-blur" viewBox="0 0 1273 400" preserveAspectRatio="none" style="opacity: 1;">
+						<filter id="blur_lh905afcf">
+							<feGaussianBlur in="SourceGraphic" stdDeviation="20"></feGaussianBlur>
+						</filter>
+						<image x="0" y="0" externalResourcesRequired="true" class="svg-img" xmlns:xlink="" xlink:href="<?php echo base_url('img/slider_09.jpg')?>" style="filter:url(#blur_lh905afcf)" preserveAspectRatio="none"></image>
+					</svg>
+				</div>
+				<div class="user-detail container">
+					<div class="avatar-block editable">
+						<a class="change-head">
+							<!--如果有用户头像就显示没有就显示默认图片-->
+							<?php if($user[0]['img']){ ?>	
+								<?php if($user[0]['qqopenid']){ ?>
+									<img class="avatar-big" src="<?php echo $user[0]['img']?>" width="160" height="160" alt="zzw" id="preview1">
+								<?php }else{?>
+									<img class="avatar-big" src="<?php echo base_url()?><?php echo $user[0]['img']?>" width="160" height="160" alt="zzw" id="preview1">
+								<?php } ?>
+							<?php }else{?>
+							<img class="avatar-big" src="<?php echo base_url('img/slider_04.jpg')?>" width="160" height="160" alt="zzw" id="preview1">
+							<?php } ?>
+						</a>
+					</div>
+					<div class="info-block">
+						<div class="info">
+							<span class="name title white extra"><?php echo $user[0]['name']?></span>
+							<a href="" class="rg-label small level" style="background-color: <?php echo $color?>;"><?php echo $grade?></a>
+							<span class="span-item gender white text">
+										<i class="ri ri-transgender"></i>
+								</span>
+						</div>
+						<div class="count">
+							<span class="span-item text white attention">
+						收藏：<a href="" class="gray" style="color: #935A46;"> <?php echo count($like);?></a>
+					</span>
+							<span class="span-item text white fan">
+						· 文章：<a href="" class="gray"style="color: #935A46;"> <?php echo count($details)?></a>
+					</span>
+						</div>
+						<p class="signature text white">
+			
+						</p>
+					</div>
+				</div>
+			</section>
+			<!--主体内容部分-->
+			<div class="home">
+				<div class="col-group">
+					<div class="col-9">
+						<div class="col_home">
+							<div class="tab-panel">
+								<!--导航-->
+								<div class="tab">
+									<ul>
+										<li class="active"><a href="javascript:void(0)">诗词歌赋</a></li>
+										<li><a href="javascript:void(0)">文章</a></li>
+										<li><a href="javascript:void(0)">收藏</a></li>
+									</ul>
+								</div>
+								<!--内容-->								
+								<div class="tab_content" style="display: block;">
+									<?php if(!$details){ ?>						
+									<!--没有内容时的状态-->
+									<div class="empty-view">
+										还没有相关的文章哦 ~~~~(>_<)~~~~
+									</div>
+									<?php }else{?>
+									<!--有内容是的状态-->
+									<ul class="article_list">
+										<?php foreach ($details as $v) { ?>										
+										<li>
+											<p>
+												<img src="<?php echo base_url('img/wen.png')?>"/>
+												<a href="" class="gray"><?php echo $v['classify']?></a>
+												<a href="<?php echo site_url('home/article')?>/<?php echo $v['poetry_num']?>" class="big"><?php echo $v['title']?></a>
+												(<span><?php echo $v['time']?></span>- -<span><?php echo $v['collect_num']?></span>人喜欢- -<span><?php echo $v['comment_num']?></span>人评论)
+											</p>
+											<p class="article_content"><?php echo $v['content']?></p>
+										</li>
+										<?php } ?>
+									</ul>
+									<?php } ?>
+								</div>
+								<div class="tab_content">
+									<div class="empty-view">
+										还没有相关的文章哦 ~~~~(>_<)~~~~
+									</div>
+								</div>
+								<div class="tab_content">
+									<?php if(!$like){ ?>						
+									<!--没有内容时的状态-->
+									<div class="empty-view">
+										还没有相关的文章哦 ~~~~(>_<)~~~~
+									</div>
+									<?php }else{?>
+									<!--有内容是的状态-->
+									<ul class="article_list">
+										<?php foreach ($like as $v) { ?>										
+										<li>
+											<p>
+												<img src="<?php echo base_url('img/wen.png')?>"/>
+												<a href="" class="gray"><?php echo $v[0]['classify']?></a>
+												<a href="<?php echo site_url('home/article')?>/<?php echo $v[0]['poetry_num']?>" class="big"><?php echo $v[0]['title']?></a>
+												(<span><?php echo $v[0]['time']?></span>- -<span><?php echo $v[0]['collect_num']?></span>人喜欢- -<span><?php echo $v[0]['comment_num']?></span>人评论)
+											</p>
+											<p class="article_content"><?php echo $v[0]['content']?></p>
+										</li>
+										<?php } ?>
+									</ul>
+									<?php } ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>	
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.1.1.min.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/jQuery.md5.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/account.js"></script>
+	</body>
+</html>

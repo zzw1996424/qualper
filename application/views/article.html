@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title><?php echo $details[0]['title']?></title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/article.css"/>
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/share.css"/>
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/pagination.css"/>
+	</head>
+	<body>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<input type="hidden" id="local2" value="<?php echo base_url()?>"/>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+		<!--主体部分-->
+		<div class="body">
+			<div class="container">
+				<div class="group">
+					<div class="left">
+						<div class="left_content" style="margin-bottom: 0;">
+							<div class="article-head">
+								<h2><?php echo $details[0]['title']?></h2>
+							</div>
+							<div class="article-meta small text">
+								<span class="span-item"><?php echo $details[0]['time']?></span>
+								<span class="span-item">|</span>
+								<span class="span-item"><?php echo count($comment)?>次评论</span>
+								<span class="span-item">|</span>
+								<span class="span-item"><?php echo count($like)?>人喜欢</span>
+								<span class="span-item">|</span>
+								<span class="span-item">
+									分类: <a href="" class="gray"><?php echo $details[0]['classify']?></a>
+								</span>
+							</div>
+							<!--内容区-->
+							<div class="article-body">
+								<!--文本区-->
+								<div class="article-content">
+									<?php //echo gettype($details[0]['content']) ?>
+									<p>	
+									<?php
+										
+										$hello = explode('。',$details[0]['content']); 
+										
+										for($index=0;$index<count($hello)-1;$index++) 
+										{ 
+											echo $hello[$index].'。';
+											echo "</br>"; 
+										}
+									?>	
+									</p>
+									<input type="hidden" id="js_content" value="<?php echo $details[0]['content']?>"/>
+									<p><img src="<?php echo base_url(''.$details[0]['img'].'')?>" alt="" id="js_img"/></p>
+									<div class="copyright-box">
+										<div>
+											<span>作者：<a href="<?php echo site_url('home/writer/'.$details[0]['uid'].'')?>" target="_blank"><?php echo $details[0]['author']?></a></span>
+											<span>∙ 文章来源：<a href="<?php echo site_url('home/index')?>">之为文学</a></span>
+										</div>
+										<div>
+											<i class="ri ri-copyright"></i>此文版权归若古作者所有，转载请注明来源若古文学、作者及原文链接。
+										</div>
+									</div>
+								</div>
+								<!--分享区-->
+								<div class="article-actions">
+									<div class="like-action">
+										<div class="like">
+											<a href="javascript:void(0)" data-content="喜欢就点我!">
+												<i>
+													<img src="<?php echo base_url('img/love.png')?>"/>
+												</i>
+												<span class="collect">喜欢</span>
+												<i>
+													<img src="<?php echo base_url('img/love.png')?>"/>
+												</i>
+												<input type="hidden" name="islogin" id="islogin" value="<?php echo $this->session->name[0]['uid']?>" />
+												<input type="hidden" name="userid" id="userid" value="<?php echo $this->session->name[0][uid]?>"/>
+												<input type="hidden" name="poetryid" id="poetryid" value="<?php echo $details[0]['poetry_num']?>"/>								
+												<input type="hidden" name="poetryname" id="poetryname" value="<?php echo $details[0]['author']?>"/>
+												<input type="hidden" name="poetrytitle" id="poetrytitle" value="<?php echo $details[0]['title']?>" />
+											</a>
+										</div>
+										<div class="error" style="color: red;display: none;text-align: center;">您已收藏过!</div>
+									</div>
+									<div id="socialShare"></div>
+								</div>
+							</div>
+							<hr />
+							<!--评论区-->
+							<div class="article-reply">
+								<div class="reply_head">评论</div>
+								<div class="reply-area">
+									<div class="replay-box">
+										<textarea name="ping" rows="4" cols="" placeholder="这里输入评论内容" id="comment"></textarea>
+									</div>
+									<div class="replay-action">
+										<a href="javascript:void(0);" class="reply_btn">发布评论</a>
+										<input type="hidden" name="comment_img" id="comment_img" value="<?php echo $this->session->name[0]['img']?>" />
+										<input type="hidden" name="comment_name" id="comment_name" value="<?php echo $this->session->name[0]['name']?>"/>
+									</div>
+								</div>
+								<div class="reply-list">
+									<ul class="my_ul">
+										<!--用户评论区暂时隐藏,当用户点击发布评论时出现-->
+										<li style="display: none;" id="user_li">
+											<div class="user-avatar">
+												<a href="<?php echo site_url('home/writer/'.$this->session->name[0]['uid'].'')?>">
+													<?php if($this->session->name[0]['img']){?>
+													<img src="<?php echo base_url().$this->session->name[0]['img']?>"/>
+													<?php }else{?>
+													<img src="<?php echo base_url('/')?>img/avatar.png"/>
+													<?php }?>
+												</a>
+											</div>
+											<div class="replay-detail">
+												<p class="user">
+													<span class="span-item">
+														<a href="<?php echo site_url('home/writer/'.$this->session->name[0]['uid'].'')?>"><?php echo $this->session->name[0]['name']?></a>
+													</span>
+													<span class="item span-item"><a href="javascript:void(0);"><?php echo count($comment)+1?></a>楼评论</span>
+												</p>
+												<div class="paper"><span id="my_text"></span><span class="time time1">2017-8-23</span></div>													
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="data-container reply-list"></div>
+						<div id="pagination-demo1" style="margin: 10px 20px;"></div>
+						<input type="hidden" name="pagin_comment" id="pagin_comment" value='<?php echo $str=json_encode($comment) ?>'/>
+					</div>
+					<div class="right"></div>
+				</div>
+			</div>
+		</div>
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.0.0.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/share.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/article.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/pagination.js"></script>
+	</body>
+</html>

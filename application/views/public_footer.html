@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>脚部</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/public_footer.css"/>
+	</head>
+	<body>
+		<!--底部-->
+			<div class="footer">
+				<div class="innder">
+					<div class="col-4">
+						<div class="site">
+							<p class="site-title">追求自己喜欢的古风</p>
+							<div class="pages">
+								<span><a href="<?php echo site_url('home/regards')?>">关于我们</a></span>
+								<span><a href="<?php echo site_url('home/statement')?>">免责声明</a></span>
+								<span><a href="<?php echo site_url('home/relation')?>">联系我们</a></span>
+								<span><a href="<?php echo site_url('home/suggest')?>">建议反馈</a></span>
+							</div>
+						</div>
+						<div class="about"> <a href="">豫ICP备16010080号-1</a></div>
+					</div>
+					<div class="col-4">
+						<div class="site">
+							<p class="site-title">帮助</p>
+							<div class="pages">
+								<span><a href="<?php echo site_url('home/integral')?>">积分说明</a></span>
+								<span><a href="<?php echo site_url('home/grade')?>">等级说明</a></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="right">
+							<div class="weixin">
+								<img src="<?php echo base_url('img/weixin.png')?>"/>
+								<p>扫码添加微信</p>
+							</div>
+							<div class="platform-list">
+								<!--微信qq图标-->
+								<span class="platform-item">
+									
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="friendlink">
+							<div class="friendlink-head">友情链接</div>
+							<span class="span-item"><a href="">枫亭书院</a></span>
+						</div>
+					</div>
+					
+				</div>
+				<!--向上的箭头-->
+				<div class="top">
+					<img src="<?php echo base_url('img/top.png')?>" alt="向上" />
+				</div>
+				
+			</div>
+			<script src="<?php echo base_url('styles/')?>js/jquery-3.1.1.min.js"></script>
+			<script type="text/javascript">
+				$(function(){
+					window.onscroll=function(){						
+						var num = $(window).scrollTop();
+						if(num>500){
+							$('.top').css('display','block');
+						}else{
+							$('.top').css('display','none');
+						}
+						$('.top').click(function(){
+							var t = setInterval(function(){
+								if(num>=0){
+									num-=35;
+									$(window).scrollTop(num);
+								}else{
+									clearInterval(t);
+								}
+							},1)
+						})
+					}									
+					
+				})
+			</script>
+			
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>demo</title>
+	</head>
+	<body>
+		<?php// var_dump($content);?>
+			<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<input type="hidden" id="local2" value="<?php echo base_url()?>"/>
+			
+			
+			<script src="<?php echo base_url('styles/')?>js/jquery-3.0.0.js"></script>
+			<script type="text/javascript">
+				$(function(){
+				$.ajax({
+	        		type:"post",
+	        		url:$("#local").val() + "/home/fu",
+	        		async:true,
+	        		dataType:'json',
+	        		success:function(response){
+	        			console.log(response[0]['content']);
+	        		},
+	        		error:function(){
+	        			
+	        		}
+	        	})
+			})
+			</script>
+	</body>
+</html>

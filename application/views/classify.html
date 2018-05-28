@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title><?php echo $content[0]['classify']?></title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/classify.css"/>	
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/pagination.css"/>
+	</head>
+	<body>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<input type="hidden" id="local2" value="<?php echo base_url()?>"/>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+			<div class="content">
+				<div class="left">
+					<div class="section">
+						<div class="panel">
+							<div class="data-container reply-list"></div>
+						</div>						
+						<div id="pagination-demo1" style="padding: 10px 20px;display: none;"></div>
+						<input type="hidden" name="pagin_comment" id="pagin_comment" value='<?php echo $str=json_encode($content); ?>'/>
+					</div>
+				</div>
+			</div>
+			<input type="hidden" name="class_url" value="<?php echo $this->uri->segment(3)?>" id="class_url"/>
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.0.0.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/pagination.js"></script>
+		<script type="text/javascript">
+			$(function(){ 
+				$.ajax({
+	        		type:"post",
+	        		url:$("#local").val() + "/home/classifya",
+	        		async:true,
+	        		dataType:'json',
+	        		data:{'class_url':$('#class_url').val()},
+	        		success:function(response){
+						var arr2 = response;
+						document.title = response[0]['classify'];
+						function createDemo(name){
+					        var container = $('#pagination-' + name);
+					        var sources = arr2;
+					        if(arr2.length>10){
+					        	$('#pagination-demo1').css('display','block');
+					        }
+					        var options = {
+					            dataSource: sources,
+					            className: 'paginationjs-theme-blue',
+					            callback: function(response, pagination){
+					                window.console && console.log(response, pagination);
+					                var dataHtml = '<ul>';
+					                $.each(response, function(index, item){																
+					                    dataHtml += '<li><a href="'+$('#local').val()+'/'+'home'+'/'+'article'+'/'+item['poetry_num']+'" class="img"><img src="'+$('#local2').val()+item['img']+'" /></a><h3 class="title"><a href="'+$('#local').val()+'/'+'home'+'/'+'article'+'/'+item['poetry_num']+'">'+item['title']+'</a></h3><p class="text">'+item['content']+'</p><p class="small gray text"><a href="'+$('#local').val()+'/'+'home'+'/'+'writer'+'/'+item['uid']+'">'+item['author']+'</a><span> ∙ '+item['time']+'</span><span> ∙ 评论 '+item['comment_num']+' </span><span> ∙ 喜欢 '+item['collect_num']+' </span></p></li>';
+					                });
+					                dataHtml += '</ul>';
+					                container.prev().html(dataHtml);
+					            }
+					        };
+					        container.pagination(options);
+					        return container;
+					    }
+						createDemo('demo1');	
+	        		},
+	        		error:function(){
+	        			
+	        		}
+	        });
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/seck.css"/>
+	</head>
+	<body>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+		<div class="body">
+			<div class="wrap">
+				<div class="search_top">
+					<div class="search">
+						<form action="<?php echo site_url('home/search')?>" method="post">					
+							<div class="group">
+								<div class="search-box">
+									<input type="text" name="search" id="search" value="" placeholder="输入关键字搜索"/>
+									<a href="javascript:void(0)" class="btn-search">
+										搜索
+										<input type="submit" name="" id="" value="" style="opacity: 0;position: absolute;top: 0;left: 0;"/>
+									</a>
+								</div>
+								<div class="opation">
+									<label for="">
+										<input type="radio" checked="checked" name="type" id="article" value="collect" />文章
+									</label>
+									<label for="">
+										<input type="radio" name="type" id="user" value="user" />用户
+									</label>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="seck">
+					<?php //var_dump($search)?>
+					<!--没有搜到-->
+					<div class="search-result" style="display: none;">
+					<input type="hidden" name="isnull" id="isnull" value="<?php echo $search?0:1 ?>" />
+					<input type="hidden" name="isseg" id="isseg" value="<?php echo $this->uri->segment(2)?>" />
+						<div class="empty-view empty-search">没有搜索到相关结果 ~~~~(&gt;_&lt;)~~~~</div>
+					</div>
+					<!--搜到了-->
+					<div class="rg-board rg-b" style="display: none;">
+						<div class="board-head">
+							<p class="title">搜索结果</p>
+						</div>
+						<div class="board-body">
+							<ul>
+								<?php foreach($search as $v){ ?>
+								<li>
+									<p class="title">
+										<a href="<?php echo site_url('home/article')?>/<?php echo $v['poetry_num']?>"><?php echo $v['title']?></a>
+									</p>
+									<p class="gray">
+										<span class="span-item">
+											<a href="<?php echo site_url('home/writer/'.$v['uid'].'')?>"><img src="<?php echo base_url('')?>img/user.png"/><?php echo $v['author']?></a>
+										</span>
+										<span class="span-item">
+											<a href=""><img src="<?php echo base_url('')?>img/time.png"/><?php echo $v['time']?></a>
+										</span>
+									</p>
+								</li>
+								<?php }?>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="left">
+					<div class="rg-board rg-left">
+						<div class="board-head">
+							<p class="title">推荐诗</p>
+						</div>
+						<div class="board-body">
+							<ul>
+								<?php foreach($shi as $v){ ?>
+								<li>
+									<p class="title">
+										<a href="<?php echo site_url('home/article')?>/<?php echo $v['poetry_num']?>"><?php echo $v['title']?></a>
+									</p>
+									<p class="gray">
+										<span class="span-item">
+											<a href="<?php echo site_url('home/writer/'.$v['uid'].'')?>"><img src="<?php echo base_url('')?>img/user.png"/><?php echo $v['author']?></a>
+										</span>
+										<span class="span-item">
+											<a href=""><img src="<?php echo base_url('')?>img/time.png"/><?php echo $v['time']?></a>
+										</span>
+									</p>
+								</li>
+								<?php }?>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="rg-board rg-left">
+						<div class="board-head">
+							<p class="title">推荐词</p>
+						</div>
+						<div class="board-body">
+							<ul>
+								<?php foreach($ci as $v){ ?>
+								<li>
+									<p class="title">
+										<a href="<?php echo site_url('home/article')?>/<?php echo $v['poetry_num']?>"><?php echo $v['title']?></a>
+									</p>
+									<p class="gray">
+										<span class="span-item">
+											<a href=""><img src="<?php echo base_url('')?>img/user.png"/><?php echo $v['author']?></a>
+										</span>
+										<span class="span-item">
+											<a href=""><img src="<?php echo base_url('')?>img/time.png"/><?php echo $v['time']?></a>
+										</span>
+									</p>
+								</li>
+								<?php }?>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>	
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+		
+			if($('#isseg').val()=='search'){
+				if($('#isnull').val()=='0'){
+					$('.search-result').css('display','none');
+					$('.rg-b').css('display','block');
+					$('.left,.right').css('display','none');
+				}else{
+					$('.search-result').css('display','block');
+					$('.rg-b').css('display','none');
+					$('.left,.right').css('display','block');
+				}
+			}
+			
+			
+		
+			
+		</script>
+	</body>
+</html>

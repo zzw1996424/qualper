@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>建议反馈</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/public_header.css"/>	
+	</head>
+	<body>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<input type="hidden" id="local2" value="<?php echo base_url()?>"/>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+		<div class="guan_body">
+			<div class="container">
+				<div class="left">
+					<div class="write">
+						<div class="rg_board">
+							<div class="rg_head">
+								<p class="title">建议反馈</p>
+							</div>
+							<div class="rg_body">
+								<div class="page-body paper">
+							<p>社区的成长离不开大家的支持和帮助。希望大家多多提建议和意见，以促进社区更快更好地发展。</p>
+							<p>如果您有一些好的建议，可以在社区论坛发帖提出，或直接发邮件到 1534395050@qq.com，我们会尽快关注或采纳您的建议。</p>
+							<p>如果您在网站使用中有不好的体验会出现问题，请一定要告知管理员，并尽可能地将您的问题描述详细，我们会第一时间解决。</p>
+							<p>最后，感谢大家的支持~~</p>
+							<p>♪───Ｏ（≧∇≦）Ｏ────♪</p>
+						</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="write">
+						<div class="rg_board">
+							<div class="rg_head">
+								<p class="title">相关页面</p>
+							</div>
+							<div class="rg_body">
+								<ul>
+									<li> ·
+										<a href="<?php echo site_url('home/regards')?>">关于我们</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/statement')?>">免责声明</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/relation')?>">联系我们</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/suggest')?>">建议反馈</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/integral')?>">积分说明</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/grade')?>">等级说明</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.0.0.js"></script>
+	</body>
+</html>

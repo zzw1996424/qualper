@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>联系我们</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/public_header.css"/>	
+	</head>
+	<body>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<input type="hidden" id="local2" value="<?php echo base_url()?>"/>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+		<div class="guan_body">
+			<div class="container">
+				<div class="left">
+					<div class="write">
+						<div class="rg_board">
+							<div class="rg_head">
+								<p class="title">联系我们</p>
+							</div>
+							<div class="rg_body">
+								<div class="paper">
+									<p>之为诗词网联系方式</p>
+									<p>问题反馈邮箱:1534395050@qq.com</p>
+									<p>官方qq:1534395050</p>
+									<p>官方微博:15638572615</p>
+									<p>官方微信:</p>
+									<img src="<?php echo base_url('img/weixin.png')?>" width="260px" height="260px"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="write">
+						<div class="rg_board">
+							<div class="rg_head">
+								<p class="title">相关页面</p>
+							</div>
+							<div class="rg_body">
+								<ul>
+									<li> ·
+										<a href="<?php echo site_url('home/regards')?>">关于我们</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/statement')?>">免责声明</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/relation')?>">联系我们</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/suggest')?>">建议反馈</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/integral')?>">积分说明</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/grade')?>">等级说明</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.0.0.js"></script>
+	</body>
+</html>

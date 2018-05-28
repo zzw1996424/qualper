@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>免责声明</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/public_header.css"/>	
+	</head>
+	<body>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<input type="hidden" id="local2" value="<?php echo base_url()?>"/>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+		<div class="guan_body">
+			<div class="container">
+				<div class="left">
+					<div class="write">
+						<div class="rg_board">
+							<div class="rg_head">
+								<p class="title">免责声明</p>
+							</div>
+							<div class="rg_body">
+								<div class="page-body paper">
+									<p>之为诗词网作为一家非盈利性互联网社区，旨在为广大的古风爱好者提供一个好的平台，促进古风发展和影响力。</p><p>本网站内容均为网友贡献。</p>
+									<p><br></p>
+									<p>部分内容源于互联网，并不代表网站官方观点和对其真实性负责。如果您发现网站上有侵犯您的知识产权的作品，请与我们官方人员联系，我们会及时修改或删除；</p><p>部分内容为网友原创分享，作者可自由发布，但网站不对其版权负责。</p>
+									<p>本网站所提供的信息，只供参考之用。</p>
+									<p><br></p>
+									<p>本网站不保证信息的准确性、有效性、及时性和完整性。本网站及其雇员一概毋须以任何方式就任何信息传递或传送的失误、不准确或错误，对用户或任何其他人士负任何直接或间接责任。在法律允许的范围内，本网站在此声明，不承担用户或任何人士就使用或未能使用本网站所提供的信息或任何链接所引致的任何直接、间接、附带、从属、特殊、惩罚性或惩戒性的损害赔偿。&nbsp;</p>
+									<p><br></p><p><br></p><p><br></p><p>&nbsp;</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="write">
+						<div class="rg_board">
+							<div class="rg_head">
+								<p class="title">相关页面</p>
+							</div>
+							<div class="rg_body">
+								<ul>
+									<li> ·
+										<a href="<?php echo site_url('home/regards')?>">关于我们</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/statement')?>">免责声明</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/relation')?>">联系我们</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/suggest')?>">建议反馈</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/integral')?>">积分说明</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/grade')?>">等级说明</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.0.0.js"></script>
+	</body>
+</html>

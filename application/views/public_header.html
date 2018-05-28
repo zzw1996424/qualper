@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>头部</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/public_header.css"/>
+	</head>
+	<body>
+		<div class="header">
+			<div class="wrap">
+				<!--logo-->
+				<div class="nav_logo">
+					<a href="<?php echo site_url('home/index')?>"><img src="<?php echo base_url('img/logo.png')?>"/></a>
+				</div>
+				<!--logo2-->
+				<div class="sub_logo">
+					<a href=""><img src="<?php echo base_url('img/z_sub_logo.png')?>"/></a>
+				</div>
+				<!--导航栏-->
+				<div class="nav_menu">
+					<ul>
+						<li><a href="<?php echo site_url('home/index')?>">首页</a></li>
+						<li><a href="<?php echo site_url('home/classify/1')?>">诗</a></li>
+						<li><a href="<?php echo site_url('home/classify/2')?>">词</a></li>
+						<li><a href="<?php echo site_url('home/classify/3')?>">赋</a></li>
+						<li><a href="<?php echo site_url('home/seck')?>">搜索</a></li>
+					</ul>
+				</div>
+				<!--两种状态,登录状态或者退出登录状态-->
+				<?php //var_dump($this->session->name)?>
+				<?php if($this->session->name[0]['uid']){ ?>
+					<div class="simple-myinfo" >
+						<a href="<?php echo site_url('home/account')?>" title="进入我的空间" class="userhead">
+							<?php if($this->session->name[0]['img']){ ?>
+								<?php if($this->session->name[0]['qqopenid']){ ?>
+									<img class="avatar-big" src="<?php echo $this->session->name[0]['img']?>" width="160" height="160" alt="zzw" id="preview1">
+								<?php }else{ ?>	
+								<img class="avatar-big" src="<?php echo base_url()?><?php echo $this->session->name[0]['img']?>" width="160" height="160" alt="zzw" id="preview1">
+								<?php }?>
+							<?php }else{ ?>
+								<img src="<?php echo base_url('/')?>img/avatar.png"/>
+							<?php }?>
+								
+						</a>
+						<a href="" class="username"><?php echo $this->session->name[0]['name']?></a>
+						<!--隐藏的下拉列表-->
+						<div class="popup">
+							<ul class="user_menu_list">
+								<li><a href="<?php echo site_url('home/account')?>">我的空间</a></li>
+								<li class="menu_divider"></li>
+								<li><a href="<?php echo site_url('home/account/fa')?>">写新文章</a></li>
+								<li class="menu_divider"></li>
+								<li><a href="<?php echo site_url('login/logout')?>">退出登录</a></li>
+							</ul>
+						</div>
+					</div>
+				<?php } else{ ?>
+					<!--没有登录的状态-->
+					<div class="simple-login">
+						<a href="<?php echo site_url('login/login')?>">登录</a>
+					</div>	
+				<?php }?>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.simple-myinfo').mouseenter(function(){
+					$('.popup').stop().slideDown(300);
+				});
+				$('.simple-myinfo').mouseleave(function(){
+					$('.popup').stop().slideUp(300);
+				})
+			})
+		</script>
+	</body>
+</html>

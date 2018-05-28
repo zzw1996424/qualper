@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$.ajax({
+        		type:"post",
+        		url:$("#local").val() + "/login/ajax",
+        		async:true,
+        		dataType:'json',
+        		success:function(response){
+        			console.log(response)
+        		}
+        			
+				})
+			})
+		</script>
+	</body>
+</html>

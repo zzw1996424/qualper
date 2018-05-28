@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>积分说明</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/public_header.css"/>	
+	</head>
+	<body>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<input type="hidden" id="local2" value="<?php echo base_url()?>"/>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+		<div class="guan_body">
+			<div class="container">
+				<div class="left">
+					<div class="write">
+						<div class="rg_board">
+							<div class="rg_head">
+								<p class="title">积分说明</p>
+							</div>
+							<div class="rg_body">
+								<div class="paper" style="line-height: 45px;">
+									<p>每日签到登陆+1分</p>
+									<p>连续签到天数越多则积分增加越多</p>
+									<p>连续签到天数终端则积分倍数重新计算</p>
+									<p>收藏+1分</p>
+									<p>评论+2分</p>
+									<p>发布文章+5分</p>
+									<p>之为诗词网欢迎您的活跃</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="write">
+						<div class="rg_board">
+							<div class="rg_head">
+								<p class="title">相关页面</p>
+							</div>
+							<div class="rg_body">
+								<ul>
+									<li> ·
+										<a href="<?php echo site_url('home/regards')?>">关于我们</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/statement')?>">免责声明</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/relation')?>">联系我们</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/suggest')?>">建议反馈</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/integral')?>">积分说明</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/grade')?>">等级说明</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.0.0.js"></script>
+	</body>
+</html>

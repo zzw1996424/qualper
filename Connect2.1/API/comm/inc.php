@@ -1,0 +1,2 @@
+<?php die('forbidden'); ?>
+{"appid":"101427374","appkey":"731b0460c886af99ee7f51d14b942924","callback":"http://zhengzhiwei1.top/poetry/index.php/home/qq_login","scope":"get_user_info,add_share","errorReport":true,"storageType":"file","host":"localhost","user":"root","password":"root","database":"test"}

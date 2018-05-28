@@ -1,0 +1,158 @@
+@charset "UTF-8";
+html, body, form, img, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, b, u, i, p, em, td, th, input, textarea, label, select, iframe {
+  font-family: "kaiti",'Gotham Light',"宋体","Arial Narrow",HELVETICA;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+body{
+    font-family: 'kaiti','Open Sans',consolas,'Microsoft YaHei','微软雅黑',STHeiti,'WenQuanYi Micro Hei',SimSun,sans-serif,tahoma;
+    background-color: #F7F7F7;
+}
+*{
+    box-sizing: border-box;
+}
+a{
+    color:#935a46;
+    text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.clear {
+  clear: both;
+}
+.body{
+    overflow: hidden;
+    margin-top: 64px;
+    font-size: 14px;
+    .wrap{
+        max-width: 1200px;
+        margin: 0 auto;
+        line-height: 2;
+        overflow: hidden;
+        .search_top{
+            width: 100%;
+            float: left;
+            padding: 0 18px;
+            .search{
+                box-shadow:0 0 4px #ddd;
+                background-color: #fff;
+                margin-bottom: 20px;
+                padding: 40px 10px;
+                margin-top: 20px;
+                .group{
+                    width: 600px;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .search-box{
+            padding: 10px;
+            position: relative;
+            input{
+                width: 100%;
+                padding-right: 40px;
+                padding-left: 10px;
+                font-size: 14px;
+                color: #555;
+                line-height: 32px;
+                height: 34px;
+                border: 1px solid #ccc;
+                vertical-align: middle;
+                outline: none;
+                transition: all .3s ease-in-out;
+                &:focus{
+                    border: 1px solid #935A46;
+                    box-shadow: 0 0 3px #935A46;
+                }
+            }
+            .btn-search{
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                background-color: #935A46;
+                color: #fff;
+                padding: 3px 10px;
+                &:hover{
+                    text-shadow: 1px 1px 5px #E8E8E8;
+                }
+            }
+        }
+        .opation{
+            margin: 0 -10px;
+            label{
+                margin: 0 20px;
+            }
+        }
+        .seck{
+            width: 100%;
+            padding: 0 18px;
+            float: left;
+            box-shadow: 0 0 4px #ddd;
+            margin: 20px 0;
+            .search-result{
+                background: #fff;
+            }
+            .empty-view{
+                min-height: 80px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-size: 14px;
+                text-align: center;
+                line-height: 60px;
+                background: #F5F5F5;
+                padding: 10px;
+            }
+        }
+        .rg-board{
+            padding: 10px;
+            background:#fff;
+            .board-head{
+                border-bottom: 1px solid #ddd;
+                .title{
+                    color: #935A46;
+                    position: relative;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    font-size: 14px;
+                }
+            }
+            .board-body{
+                padding: 10px;
+                li{
+                    padding: 10px;
+                    border-bottom: 1px dashed #ddd;
+                    .title{
+                        font-size: 14px;
+                        overflow: hidden;
+                        a{
+                            color: #555;
+                        }
+                    }
+                    .gray{
+                        color: #aaa;
+                        font-size: 14px;
+                        span{
+                            margin-right: 10px;
+                            img{
+                                position: relative;
+                                top: 5px;
+                            }
+                        }
+                        .span-item:last-child img{
+                            position: relative;
+                            top: 2px;
+                        }
+                    }
+                }
+            }
+        }
+        .left,.right{
+            width: 50%;
+            float: left;
+            padding: 0 18px;
+            margin-bottom: 30px;
+        }
+    }
+}

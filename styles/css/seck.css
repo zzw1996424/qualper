@@ -1,0 +1,190 @@
+@charset "UTF-8";
+html, body, form, img, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, b, u, i, p, em, td, th, input, textarea, label, select, iframe {
+  font-family: "kaiti",'Gotham Light',"宋体","Arial Narrow",HELVETICA;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'kaiti','Open Sans',consolas,'Microsoft YaHei','微软雅黑',STHeiti,'WenQuanYi Micro Hei',SimSun,sans-serif,tahoma;
+  background-color: #F7F7F7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #935a46;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.body {
+  overflow: hidden;
+  margin-top: 64px;
+  font-size: 14px;
+}
+
+.body .wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  line-height: 2;
+  overflow: hidden;
+}
+
+.body .wrap .search_top {
+  width: 100%;
+  float: left;
+  padding: 0 18px;
+}
+
+.body .wrap .search_top .search {
+  box-shadow: 0 0 4px #ddd;
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 40px 10px;
+  margin-top: 20px;
+}
+
+.body .wrap .search_top .search .group {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.body .wrap .search-box {
+  padding: 10px;
+  position: relative;
+}
+
+.body .wrap .search-box input {
+  width: 100%;
+  padding-right: 40px;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #555;
+  line-height: 32px;
+  height: 34px;
+  border: 1px solid #ccc;
+  vertical-align: middle;
+  outline: none;
+  transition: all .3s ease-in-out;
+}
+
+.body .wrap .search-box input:focus {
+  border: 1px solid #935A46;
+  box-shadow: 0 0 3px #935A46;
+}
+
+.body .wrap .search-box .btn-search {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: #935A46;
+  color: #fff;
+  padding: 3px 10px;
+}
+
+.body .wrap .search-box .btn-search:hover {
+  text-shadow: 1px 1px 5px #E8E8E8;
+}
+
+.body .wrap .opation {
+  margin: 0 -10px;
+}
+
+.body .wrap .opation label {
+  margin: 0 20px;
+}
+
+.body .wrap .seck {
+  width: 100%;
+  padding: 0 18px;
+  float: left;
+  box-shadow: 0 0 4px #ddd;
+  margin: 20px 0;
+}
+
+.body .wrap .seck .search-result {
+  background: #fff;
+}
+
+.body .wrap .seck .empty-view {
+  min-height: 80px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 60px;
+  background: #F5F5F5;
+  padding: 10px;
+}
+
+.body .wrap .rg-board {
+  padding: 10px;
+  background: #fff;
+}
+
+.body .wrap .rg-board .board-head {
+  border-bottom: 1px solid #ddd;
+}
+
+.body .wrap .rg-board .board-head .title {
+  color: #935A46;
+  position: relative;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 14px;
+}
+
+.body .wrap .rg-board .board-body {
+  padding: 10px;
+}
+
+.body .wrap .rg-board .board-body li {
+  padding: 10px;
+  border-bottom: 1px dashed #ddd;
+}
+
+.body .wrap .rg-board .board-body li .title {
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.body .wrap .rg-board .board-body li .title a {
+  color: #555;
+}
+
+.body .wrap .rg-board .board-body li .gray {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.body .wrap .rg-board .board-body li .gray span {
+  margin-right: 10px;
+}
+
+.body .wrap .rg-board .board-body li .gray span img {
+  position: relative;
+  top: 5px;
+}
+
+.body .wrap .rg-board .board-body li .gray .span-item:last-child img {
+  position: relative;
+  top: 2px;
+}
+
+.body .wrap .left, .body .wrap .right {
+  width: 50%;
+  float: left;
+  padding: 0 18px;
+  margin-bottom: 30px;
+}

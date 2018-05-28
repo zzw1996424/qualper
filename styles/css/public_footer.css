@@ -1,0 +1,90 @@
+.footer {
+  display: block;
+  z-index: 1111;
+  width: 100%;
+  box-shadow: 0 -1px 2px #ddd;
+}
+.footer a{
+	font-size: 16px;
+}
+.footer .innder {
+  max-width: 1200px;
+  min-height: 200px;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #aaa;
+}
+
+.footer .innder .col-4 {
+  width: 33.3333333%;
+  float: left;
+  padding: 0 18px;
+}
+
+.footer .innder .col-4 .site {
+  line-height: 20px;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.footer .innder .col-4 .site .site-title {
+  font-size: 16px;
+  color: #aaa;
+}
+
+.footer .innder .col-4 .site .pages {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.footer .innder .col-4 .site .pages a {
+  font-size: 16px;
+}
+
+.footer .innder .col-4 .right {
+  float: right;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.footer .innder .col-4 .right .weixin img {
+  width: 120px;
+  height: 120px;
+}
+
+.footer .innder .col-12 {
+  width: 100%;
+  float: left;
+  padding: 0 18px;
+}
+
+.footer .innder .col-12 .friendlink {
+  overflow: hidden;
+  border-top: 1px dashed #ddd;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.footer .innder .col-12 .friendlink .friendlink-head {
+  float: left;
+  margin-right: 10px;
+  font-weight: 700;
+}
+
+.footer .innder .col-12 .friendlink .friendlink-head .span-item {
+  float: left;
+  margin-right: 10px;
+}
+
+.footer .innder .col-12 .friendlink .friendlink-head .span-item a {
+  color: #aaa;
+  font-size: 14px;
+}
+.top{
+	position: fixed;
+	right: 20px;
+	bottom: 30px;
+	cursor: pointer;
+	
+}

@@ -1,0 +1,199 @@
+@charset "UTF-8";
+html, body, form, img, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, b, u, i, p, em, td, th, input, textarea, label, select, iframe {
+  font-family: "kaiti",'Gotham Light',"宋体","Arial Narrow",HELVETICA;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'kaiti','Open Sans',consolas,'Microsoft YaHei','微软雅黑',STHeiti,'WenQuanYi Micro Hei',SimSun,sans-serif,tahoma;
+  background-color: #F7F7F7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #935a46;
+  text-decoration: none;
+}
+
+input {
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.simple-login, .popup {
+  display: none;
+}
+
+.content {
+  margin-top: 128px;
+  margin-bottom: 64px;
+}
+
+.content .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  line-height: 2;
+  overflow: hidden;
+}
+
+.content .container .col {
+  margin-left: 25%;
+  width: 50%;
+  padding: 0 18px;
+  float: left;
+}
+
+.content .login_section {
+  margin: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 0 4px #ddd;
+}
+
+.content .login_section .rg_form {
+  padding: 20px;
+}
+
+.content .login_section .rg_form .rg_head {
+  color: #555;
+  border-bottom: 1px dashed #ddd;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.content .login_section .rg_form .email, .content .login_section .rg_form .password, .content .login_section .rg_form .img {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 40px;
+}
+
+.content .login_section .rg_form .email i, .content .login_section .rg_form .password i, .content .login_section .rg_form .img i {
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  margin-top: -11px;
+  color: #aaa;
+}
+
+.content .login_section .rg_form .email input, .content .login_section .rg_form .password input, .content .login_section .rg_form .img input {
+  width: 100%;
+  height: 40px;
+  padding: 5px 10px 5px 36px;
+  background-color: #F0F0F0;
+  font-size: 14px;
+  border: 0;
+  outline: 0;
+  transition: all .3s ease-in-out;
+}
+
+.content .login_section .rg_form .email input:focus, .content .login_section .rg_form .password input:focus, .content .login_section .rg_form .img input:focus {
+  box-shadow: 0 0 4px #935A46;
+}
+
+.content .login_section .rg_form .img input {
+  width: 60%;
+  float: left;
+}
+
+.content .login_section .rg_form .img a {
+  float: right;
+  display: block;
+  width: 150px;
+  height: 40px;
+}
+
+.content .login_section .rg_form .img a img {
+  width: 150px;
+  height: 40px;
+}
+
+.content .login_section .rg_form .action {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+}
+
+.content .login_section .rg_form .action .left {
+  float: left;
+}
+
+.content .login_section .rg_form .action .error {
+  margin-left: 10px;
+  color: #FF3239;
+  transition: all .3s ease-in-out;
+  float: left;
+}
+
+.content .login_section .rg_form .action input {
+  float: right;
+  font-size: 14px;
+  padding: 8px 16px;
+  color: #935A46;
+  background-color: #fff;
+  border-radius: 2px;
+  border: 2px solid #935A46;
+  line-height: 1;
+  display: inline-block;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.content .login_section .rg_form .action input:hover {
+  background: #935A46;
+  color: #fff;
+}
+
+.content .login_section .rg_form .rg_foot {
+  margin: 10px 0;
+}
+
+.content .login_section .rg_form .rg_foot .span_item {
+  margin-right: 10px;
+}
+
+.content .login_section .rg_form .rg_foot .social-login {
+  float: right;
+}
+
+.content .login_section .rg_form .rg_foot .social-login .span_item {
+  margin-right: 10px;
+}
+
+.content .login_section .rg_form .rg_foot .social-login .span_item i {
+  display: inline-block;
+  opacity: 1;
+  margin: 0 .25rem 0 0;
+  width: 1.18em;
+  height: 1em;
+}
+
+.content .login_section .rg_form .rg_foot .social-login .span_item i img {
+  position: relative;
+  top: 7px;
+}
+
+.content .login_section hr {
+  margin: 20px 0;
+  height: 1px;
+  border: 0;
+  width: 100%;
+  background: #E6EAED;
+}

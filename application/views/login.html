@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/login.css"/>
+	</head>
+	<body>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+			
+		<div class="content">
+			<div class="container">
+				<div class="col">
+					<div class="login_section">
+						<div class="rg_form">
+							<div class="rg_head">
+								<h2>欢迎登录之为诗词网</h2>
+							</div>
+							<div class="rg_body">
+								<form action="<?php echo site_url('home/account')?>" method="post" id="myform">
+									<div class="email">
+										<i class="you"><img src="<?php echo base_url('img/email.png')?>"/></i>
+										<input type="text" class="input_email" placeholder="邮箱"/>
+									</div>
+									<div class="password">
+										<i class="pas"><img src="<?php echo base_url('img/pass.png')?>"/></i>
+										<input type="password" class="input_password" placeholder="密码"/>
+									</div>
+									<p class="error" style="color: red;"></p>
+									<div class="action">
+										<p class="left"><a href="<?php echo site_url('login/reset_password')?>">忘记密码?</a></p>								
+										<input type="button" class="btn" value="登录"/>
+									</div>
+									
+								</form>
+								<hr />
+							</div>
+							<div class="rg_foot">
+								<div class="one_row">
+									没有账号?
+									<span class="span_item"><a href="<?php echo site_url('login/regist')?>">注册一下吧</a></span>
+									<div class="social-login">
+										<span class="span_item">联合登录</span>
+										<span class="span_item"><i><a href="<?php echo site_url('home/qqlogin')?>"><img src="<?php echo base_url('img/qq.png')?>"/></a></i></span>
+										<span class="span_item"><i><a href="https://api.weibo.com/2/users/show.json"><img src="<?php echo base_url('img/weibo.png')?>"/></a></i></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.0.0.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/jQuery.md5.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/login.js"></script>			
+	</body>
+</html>

@@ -1,0 +1,248 @@
+@charset "UTF-8";
+html, body, form, img, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, b, u, i, p, em, td, th, input, textarea, label, select, iframe {
+  font-family: "kaiti",'Gotham Light',"宋体","Arial Narrow",HELVETICA;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'kaiti','Open Sans',consolas,'Microsoft YaHei','微软雅黑',STHeiti,'WenQuanYi Micro Hei',SimSun,sans-serif,tahoma;
+  background-color: #F7F7F7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #935a46;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.header {
+  display: block;
+  position: fixed;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  height: 64px;
+  display: block;
+  z-index: 1000;
+  width: 100%;
+  transition: all .5s ease-in-out;
+}
+
+.header .wrap {
+  max-width: 1200px;
+  height: 64px;
+  margin: 0 auto;
+  position: relative;
+  /*登录的状态*/
+}
+
+.header .wrap .nav_logo, .header .wrap .sub_logo {
+  float: left;
+}
+
+.header .wrap .nav_logo img, .header .wrap .sub_logo img {
+  width: auto;
+  height: 64px;
+}
+
+.header .wrap .nav_menu {
+  float: left;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.header .wrap .nav_menu li {
+  float: left;
+  width: 100px;
+  height: 64px;
+  line-height: 64px;
+  text-align: center;
+}
+
+.header .wrap .nav_menu li a {
+  color: #935a46;
+  font-size: 18px;
+}
+
+.header .wrap .nav_menu li a:hover {
+  color: #cc7030;
+}
+
+.header .wrap .simple-login {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 20px;
+  height: 64px;
+}
+
+.header .wrap .simple-login a {
+  font-size: 14px;
+  padding: 8px 16px;
+  color: #935a46;
+  background-color: #fff;
+  border-radius: 2px;
+  border: 2px solid #935a46;
+  line-height: 1;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.header .wrap .simple-login a:hover {
+  color: #fff;
+  background-color: #935a46;
+  text-shadow: 1px 1px 5px #E8E8E8;
+}
+
+.header .wrap .simple-myinfo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 8px;
+  height: 64px;
+}
+
+.header .wrap .simple-myinfo a {
+  display: inline-block;
+  line-height: 0;
+}
+
+.header .wrap .simple-myinfo a img {
+  display: block;
+  margin-left: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  transition: all .3s ease-in-out;
+  width: 48px;
+  height: 48px;
+}
+
+.header .wrap .simple-myinfo a img:hover {
+  box-shadow: 0 0 4px #935A46;
+  border: 2px solid #935a46;
+}
+
+.header .wrap .simple-myinfo .userhead {
+  float: left;
+}
+
+.header .wrap .simple-myinfo .username {
+  margin-left: 8px;
+  margin-right: 8px;
+  line-height: 48px;
+}
+
+.header .popup {
+  font-size: 1rem;
+  margin: 0;
+  display: none;
+  position: absolute;
+  top: 64px;
+  right: 0;
+  z-index: 1001;
+  border: 1px solid #d4d4d5;
+  line-height: 1.425em;
+  max-width: 250px;
+  background: #fff;
+  padding: .833em 1em;
+  font-weight: 400;
+  border-radius: .285rem;
+  box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
+  color: rgba(0, 0, 0, 0.87);
+  font-style: normal;
+}
+
+.header .popup li {
+  width: 120px;
+  line-height: 36px;
+  text-align: center;
+  transition: all .3s ease-in-out;
+}
+
+.header .popup li:hover {
+  background-color: #f5f5f5;
+}
+
+.header .popup li a {
+  display: block;
+  color: #555;
+}
+
+.header .popup li a:hover {
+  color: #cc7030;
+}
+
+.header .popup .menu_divider {
+  padding: 0;
+  background-color: #e5e7e9;
+  line-height: 0;
+  height: 1px;
+}
+
+.guan_body {
+  overflow: hidden;
+  font-size: 16px;
+  margin: 0 auto;
+  line-height: 2;
+  margin-top: 64px;
+}
+
+.guan_body .container {
+  width: 1200px;
+  margin: 0 auto;
+  line-height: 2;
+}
+
+.guan_body .left, .guan_body .right {
+  width: 75%;
+  float: left;
+  padding: 0 18px;
+}
+
+.guan_body .left .write, .guan_body .right .write {
+  box-shadow: 0 0 4px #ddd;
+  background: #fff;
+  margin: 20px 0;
+}
+
+.guan_body .left .write .rg_board, .guan_body .right .write .rg_board {
+  padding: 10px;
+}
+
+.guan_body .left .write .rg_board .rg_head, .guan_body .right .write .rg_board .rg_head {
+  border-bottom: 1px solid #ddd;
+}
+
+.guan_body .left .write .rg_board .rg_head .title, .guan_body .right .write .rg_board .rg_head .title {
+  color: #935A46;
+  position: relative;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.guan_body .left .write .rg_board .rg_body, .guan_body .right .write .rg_board .rg_body {
+  padding: 10px;
+}
+
+.guan_body .right {
+  width: 25%;
+}
+
+.guan_body .left .write {
+  min-height: 500px;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/login.css"/>
+	</head>
+	<body>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+			
+		<div class="content">
+			<div class="container">
+				<div class="col">
+					<div class="login_section">
+						<div class="rg_form">
+							<div class="rg_head">
+								<h2>欢迎注册之为诗词网</h2>
+							</div>
+							<div class="rg_body">
+								<form action="<?php echo site_url('login/rigister_data')?>" method="post" id="myform">
+									<div class="email">
+										<i class="you"><img src="<?php echo base_url('img/email.png')?>"/></i>
+										<input type="text" class="input_email" placeholder="邮箱" name="email"/>
+									</div>
+									<div class="password">
+										<i class="pas"><img src="<?php echo base_url('img/email.png')?>"/></i>
+										<input type="text" class="input_name" placeholder="用户名" name="username"/>
+									</div>
+									<div class="img"> 
+										<i class="pas"><img src="<?php echo base_url('img/pass.png')?>"/></i>
+						                <input id='cap' name="captcha" type="text" class="img_input auth" placeholder="图片验证码"/>
+						                <input id='cap2' type='hidden' value='<?php echo $_SESSION["captcha"]?>'/><!--生成验证码时保存在SESSION中的值-->
+							            <a id='code' ><?php echo $captcha ?></a>
+							        </div>
+									<div class="password">
+										<i class="pas"><img src="<?php echo base_url('img/pass.png')?>"/></i>
+										<input type="password" class="input_password" placeholder="密码" name="password"/>
+									</div>
+									<div class="password">
+										<i class="pas"><img src="<?php echo base_url('img/pass.png')?>"/></i>
+										<input type="password" class="input_password2" placeholder="确认密码"/>
+									</div>
+									<p class="error" style="color: red;"></p>
+									<div class="action">
+										<a href="<?php echo site_url('login/login')?>">去登陆</a>
+										<p class="left">已有账号?</p>
+										
+										<input type="button" class="btn" value="注册"/>
+									</div>
+									
+								</form>
+								<hr />
+							</div>
+							<div class="rg_foot">
+								<div class="one_row">
+									
+									<span class="span_item"><a href="">使用第三方平台账号登录</a></span>
+									<div class="social-login">
+										<span class="span_item">联合登录</span>
+										<span class="span_item"><i><img src="<?php echo base_url('img/qq.png')?>"/></i></span>
+										<span class="span_item"><i><img src="<?php echo base_url('img/weibo.png')?>"/></i></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.1.1.min.js"></script>
+		<script src="<?php echo base_url('styles/')?>js/register.js"></script>
+	</body>
+</html>

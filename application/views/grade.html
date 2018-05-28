@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>等级说明</title>
+		<link rel="shortcut icon" href="<?php echo base_url()?>/img/icon.png">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('styles/')?>css/public_header.css"/>	
+	</head>
+	<body>
+		<input type="hidden" id="local" value="<?php echo site_url()?>"/>
+		<input type="hidden" id="local2" value="<?php echo base_url()?>"/>
+		<!--公共头部-->
+		<?php $this->load->view('public_header.html')?>
+			<style type="text/css">
+				h3{
+					display: inline-block;
+				}
+			</style>
+		<div class="guan_body">
+			<div class="container">
+				<div class="left">
+					<div class="write">
+						<div class="rg_board">
+							<div class="rg_head">
+								<p class="title">等级说明说明</p>
+							</div>
+							<div class="rg_body">
+								<div class="paper">
+									<ul>
+										<li>
+											<h3>倔强青铜Ⅲ</h3>积分<10
+										</li>
+										<li>
+											<h3>倔强青铜Ⅱ</h3>积分<20
+										</li>
+										<li>
+											<h3>倔强青铜Ⅰ</h3>积分<30
+										</li>
+										<li>
+											<h3>持续白银Ⅲ</h3>积分<40
+										</li>
+										<li>
+											<h3>持续白银Ⅱ</h3>积分<50
+										</li>
+										<li>
+											<h3>持续白银Ⅰ</h3>积分<60
+										</li>
+										<li>
+											<h3>荣耀黄金Ⅲ</h3>积分<70
+										</li>
+										<li>
+											<h3>荣耀黄金Ⅱ</h3>积分<80
+										</li>
+										<li>
+											<h3>荣耀黄金Ⅰ</h3>积分<90
+										</li>
+										<li>
+											<h3>尊贵铂金Ⅲ</h3>积分<100
+										</li>
+										<li>
+											<h3>尊贵铂金Ⅱ</h3>积分<110
+										</li>
+										<li>
+											<h3>尊贵铂金Ⅰ</h3>积分<120
+										</li>
+										<li>
+											<h3>永恒钻石Ⅲ</h3>积分<130
+										</li>
+										<li>
+											<h3>永恒钻石Ⅱ</h3>积分<140
+										</li>
+										<li>
+											<h3>永恒钻石Ⅰ</h3>积分<150
+										</li>
+										<li>
+											<h3>最强王者Ⅲ</h3>积分<160
+										</li>
+										<li>
+											<h3>最强王者Ⅱ</h3>积分<170
+										</li>
+										<li>
+											<h3>最强王者Ⅰ</h3>积分<180
+										</li>
+										<li>
+											<h3>荣耀王者Ⅲ</h3>积分<190
+										</li>
+										<li>
+											<h3>荣耀王者Ⅱ</h3>积分<200
+										</li>
+										<li>
+											<h3>荣耀王者</h3>积分>210
+										</li>	
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="write">
+						<div class="rg_board">
+							<div class="rg_head">
+								<p class="title">相关页面</p>
+							</div>
+							<div class="rg_body">
+								<ul>
+									<li> ·
+										<a href="<?php echo site_url('home/regards')?>">关于我们</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/statement')?>">免责声明</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/relation')?>">联系我们</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/suggest')?>">建议反馈</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/integral')?>">积分说明</a>
+									</li>
+									<li> ·
+										<a href="<?php echo site_url('home/grade')?>">等级说明</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--公共脚部-->
+		<?php $this->load->view('public_footer.html')?>
+		<script src="<?php echo base_url('styles/')?>js/jquery-3.0.0.js"></script>
+	</body>
+</html>

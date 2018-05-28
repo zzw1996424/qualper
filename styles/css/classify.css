@@ -1,0 +1,93 @@
+@charset "UTF-8";
+html, body, form, img, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, b, u, i, p, em, td, th, input, textarea, label, select, iframe {
+  font-family: "kaiti",'Gotham Light',"宋体","Arial Narrow",HELVETICA;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'kaiti','Open Sans',consolas,'Microsoft YaHei','微软雅黑',STHeiti,'WenQuanYi Micro Hei',SimSun,sans-serif,tahoma;
+  background-color: #F7F7F7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #935a46;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.content {
+  margin-top: 64px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  line-height: 2;
+}
+
+.content .left {
+  width: 75%;
+  padding: 0 18px;
+  overflow: hidden;
+}
+
+.content .left .section {
+  box-shadow: 0 0 4px #ddd;
+  background-color: #fff;
+  margin: 20px 0;
+}
+
+.content .left .panel {
+  padding: 0 20px;
+  min-height: 780px;
+}
+
+.content .left .panel li {
+  position: relative;
+  padding: 20px 80px 20px 20px;
+  border-bottom: 1px dashed #ddd;
+}
+
+.content .left .panel li .img {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -30px;
+}
+
+.content .left .panel li .img img {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  padding: 1px;
+  border: 1px solid #ddd;
+  transition: all .3s ease-in-out;
+}
+
+.content .left .panel li .img img:hover {
+  border: 1px solid #935A46;
+  box-shadow: 0 0 2px #935A46;
+}
+
+.content .left .panel li .title a {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.content .left .panel li .text {
+  height: 35px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
